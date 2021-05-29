@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>Tour India</title>
+
+  <!-- Bootstrap core CSS -->
+  <link href="Pages-inside/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Custom styles for this template -->
+  <link href="Pages-inside/css/goldentemple.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+</head>
+
+<body>
+
+  <!-- Navigation -->
+  <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark fixed-top">
+    <div class="container">
+      <a class="navbar-brand" href="index.html">Tour India</a>
+      <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="about.html">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="about.html">About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="contact.html">Contact</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Page Content -->
+  <div class="container">
+
+    <!-- Page Heading/Breadcrumbs -->
+    <h1 class="mt-4 mb-3">Golden Temple
+      <small>It's Real Gold</small>
+    </h1>
+
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item">
+        <a href="index.html">Home</a>
+      </li>
+      <li class="breadcrumb-item active">Taj Mahal</li>
+    </ol>
+
+    <!-- Portfolio Item Row -->
+    <div class="row">
+
+      <div class="col-md-8">
+        <img class="img-fluid" src="Pages-inside/img/Harmandir-Sahib-Amritsar-India-Punjab.jpg" alt="">
+      </div>
+
+      <div class="col-md-4">
+        <h3 class="my-3">Description</h3>
+        <p>The Golden Temple, also known as Sri Harmandir Sahib ("abode of God") or Darbar Sahib, (Punjabi pronunciation: [dəɾbɑɾ sɑhɪb], "exalted holy court"), is a Gurdwara located in the city of Amritsar, Punjab, India.After Gurdwara Janam Asthan, the birthplace of Sikhism, this temple is the most important pilgrimage site of Sikhism.
+
+The temple is built around a man-made pool (sarovar) that was completed by Guru Ram Das in 1577. </p>
+        <h3 class="my-3">Also Known as</h3>
+        <ul>
+          <li>abode of God</li>
+          <li>dəɾbɑɾ sɑhɪb</li>
+          <li>Sri Harmandir Sahib</li>
+        </ul>
+      </div>
+
+    </div>
+    <!-- /.row -->
+
+    <!-- Related Projects Row -->
+    <h3 class="my-4">Related Pictures</h3>
+
+    <div class="row">
+
+      <div class="col-md-3 col-sm-6 mb-4">
+        <a href="#">
+          <img class="img-fluid" src="Pages-inside/img/The-Golden-Temple-India8.jpg" alt="">
+        </a>
+      </div>
+
+      <div class="col-md-3 col-sm-6 mb-4">
+        <a href="#">
+          <img class="img-fluid" src="Pages-inside/img/597529822Amritsar_Main.jpg" alt="">
+        </a>
+      </div>
+
+      <div class="col-md-3 col-sm-6 mb-4">
+        <a href="#">
+          <img class="img-fluid" src="Pages-inside/img/imb-photos-warrior-medium.jpg" alt="">
+        </a>
+      </div>
+
+      <div class="col-md-3 col-sm-6 mb-4">
+        <a href="#">
+          <img class="img-fluid" src="Pages-inside/img/photo1.jpg" alt="">
+        </a>
+      </div>
+
+    </div>
+    <!-- /.row -->
+    
+    <div class="form p-3">
+      <h3>Give your rating and review:</h3><br>
+      <form action="/rating" method="post">
+        <div class="starability-basic">      
+          <input type="radio" id="no-rate" class="input-no-rate" name="rating" value="0" checked aria-label="No rating." />
+    
+          <input type="radio" id="rate1" name="rating" value="1" />
+          <label for="rate1">1 star.</label>
+    
+          <input type="radio" id="rate2" name="rating" value="2" />
+          <label for="rate2">2 stars.</label>
+    
+          <input type="radio" id="rate3" name="rating" value="3" />
+          <label for="rate3">3 stars.</label>
+    
+          <input type="radio" id="rate4" name="rating" value="4" />
+          <label for="rate4">4 stars.</label>
+    
+          <input type="radio" id="rate5" name="rating" value="5" />
+          <label for="rate5">5 stars.</label>
+    
+          <span class="starability-focus-ring"></span>
+        </div>
+        <textarea class="form-control" name="review" id="review" rows="3" placeholder="Add your review here" required></textarea>
+        <button class="btn btn-success mt-3 mb-4" type="submit">Submit</button>
+      </form>
+    </div><br>
+  
+    <h3>Reviews:</h3>
+    <% for(let Review of reviews){ %>
+      <h5 class="panel">
+        <span class="fa-stack fa">
+            <i class="fa fa-circle-thin fa-stack-2x"></i>
+            <i class="fa fa-user fa-stack-1x"></i>
+        </span>
+        User name </h5>
+    <div class="alert alert-secondary">
+      <p class="starability-result" data-rating="<%= Review.rating %>">
+        Rated: x stars
+      </p>
+      <h5><%= Review.review %></h5>
+    </div>
+    <% } %>
+</div>
+
+
+  <!-- /.container -->
+
+  <!-- Footer -->
+  <footer class="py-3 bg-dark">
+    <div class="container">
+      <p class="m-0 text-center text-white">Copyright &copy; Tour India</p>
+    </div>
+    <!-- /.container -->
+  </footer>
+
+  <!-- Bootstrap core JavaScript -->
+  <script src="Pages-inside/vendor/jquery/jquery.min.js"></script>
+  <script src="Pages-inside/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+</body>
+
+</html>
