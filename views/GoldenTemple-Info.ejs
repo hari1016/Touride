@@ -16,6 +16,10 @@
   <!-- Custom styles for this template -->
   <link href="Pages-inside/css/goldentemple.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  
+  <script src='https://api.mapbox.com/mapbox-gl-js/v2.3.0/mapbox-gl.js'></script>
+  <link href='https://api.mapbox.com/mapbox-gl-js/v2.3.0/mapbox-gl.css' rel='stylesheet' />
+
 
 </head>
 
@@ -113,8 +117,8 @@ The temple is built around a man-made pool (sarovar) that was completed by Guru 
 
     </div>
     <!-- /.row -->
-    
-    <div class="form p-3">
+    <div class="row">
+    <div class="form p-3 col">
       <h3>Give your rating and review:</h3><br>
       <form action="/rating" method="post">
         <div class="starability-basic">      
@@ -140,8 +144,12 @@ The temple is built around a man-made pool (sarovar) that was completed by Guru 
         <textarea class="form-control" name="review" id="review" rows="3" placeholder="Add your review here" required></textarea>
         <button class="btn btn-success mt-3 mb-4" type="submit">Submit</button>
       </form>
-    </div><br>
-  
+    </div>
+    <div class="col ml-4">
+      <h4>Location of Golden Temple:</h4>
+      <div id='map' style='width: 450px; height: 300px;'></div>
+    </div>
+  </div><br>
     <h3>Reviews:</h3>
     <% for(let Review of reviews){ %>
       <h5 class="panel">
@@ -157,6 +165,23 @@ The temple is built around a man-made pool (sarovar) that was completed by Guru 
       <h5><%= Review.review %></h5>
     </div>
     <% } %>
+    
+  
+  <script>
+  mapboxgl.accessToken = 'pk.eyJ1IjoiaGFyaXN0YXJnYXJ5ZWFuIiwiYSI6ImNrcGNpMnZ4cTE4MGYyb2xsMXRhZXJrNWQifQ.S0FeTOKB9_AdnC2paKVm6A';
+  var map = new mapboxgl.Map({
+      container: 'map', // container ID
+      style: 'mapbox://styles/mapbox/streets-v11', // style URL
+      center: [74.8765,31.6200], // starting position [lng, lat]
+      zoom: 12 // starting zoom
+  });
+  // Set options
+  var marker = new mapboxgl.Marker({
+      color: "red",
+      draggable: true
+    }).setLngLat([74.8765,31.6200])
+    .addTo(map);
+  </script>
 </div>
 
 
